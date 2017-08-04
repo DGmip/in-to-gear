@@ -1,0 +1,25 @@
+@import '~styles/mixins'
+@import '~styles/colours'
+\:host()
+  img
+    width: 55px
+    height: 55px
+  h1
+    margin: 0px
+    padding: 0px
+  .logo
+    width: 55px
+    height: 55px
+    background-color: $red
+    +border-radius(6px)
+  .nav
+    padding: 10px 1%
+    height: 65px
+  #desktop-nav
+    border-bottom: 1px solid $grey
+  #mobile-nav
+    position: fixed
+    top: 0px
+    width: 100%
+    button
+      background-color: white

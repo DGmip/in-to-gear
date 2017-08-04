@@ -1,0 +1,29 @@
+<div class="nav" fxShow='false' fxShow.xs='true' id="mobile-nav" fxLayout="row" fxLayoutAlign="start center">
+
+  <div class="logo">
+    <img src="../assets/logo.png" alt="Gopass Logo" />
+  </div>
+
+  <div fxFlex></div>
+
+  <button md-fab [mdMenuTriggerFor]="appMenu">
+    <i class="material-icons grey">menu</i>
+  </button>
+
+  <md-menu #appMenu="mdMenu">
+    <a md-menu-item *ngFor="let s of sections" href='#{{s.anchor}}'>{{s.name}}</a>
+  </md-menu>
+
+</div>
+
+<div class="nav" id="desktop-nav" fxLayout="row" fxLayoutAlign="start center" fxShow='false' fxShow.gt-xs='true'>
+
+  <div class="logo">
+    <img src="../assets/logo.png" alt="Gopass Logo" />
+  </div>
+
+  <div fxFlex></div>
+
+  <a md-button href="#{{s.anchor}}" *ngFor="let s of sections">{{s.name}}</a>
+
+</div>
