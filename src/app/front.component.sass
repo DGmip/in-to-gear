@@ -19,14 +19,6 @@
         color: $text-grey
       .display-info
         height: 40px
-    .icon-box
-      cursor: pointer
-      padding: 25px
-      +transition-all()
-      &.selected
-        +scale(1.010)
-      i.material-icons
-        font-size: 10em
 
     .box
       width: 300px
@@ -37,6 +29,18 @@
       p, h4
         text-align: center
   #lessons
+    .icon-box
+      transform-origin: right center
+      cursor: pointer
+      padding: 25px
+      margin-bottom: 10px
+      +transition-all()
+      &.selected
+        transform: translateX( -100% ) rotateY( -180deg )
+        // transform: rotateY( 180deg );
+      i.material-icons
+        font-size: 10em
+
     .display-info
       h4
         text-align: center

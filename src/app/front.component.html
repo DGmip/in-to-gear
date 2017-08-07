@@ -8,19 +8,29 @@
     <h2 class="header">Lessons</h2>
     <div fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="space-around center" fxLayout.xs="column"
       fxLayoutAlign.xs="space-around center" fxFill>
-      <div class="icon-box mat-elevation-z2" [ngClass]="{'mat-elevation-z8 selected': displayType === 'book'}" fxLayout="column" fxLayoutAlign="start center" (click)="selectInfo('book')">
-        <h4>Step-1 Book</h4>
-        <i class="material-icons stop">phone</i>
+
+      <div class="icon-box mat-elevation-z2" [ngClass]="{'mat-elevation-z8 selected': displayType === 'book'}"
+        fxLayout="column" fxLayoutAlign="start center" (click)="selectInfo('book')">
+        <div fxLayout="column" fxLayoutAlign="start center" class="front">
+          <h4>Step-1 Book</h4>
+          <i class="material-icons stop">phone</i>
+        </div>
       </div>
-      <div class="icon-box mat-elevation-z2" [ngClass]="{'mat-elevation-z8 selected': displayType === 'go'}"  fxLayout="column" fxLayoutAlign="start center" (click)="selectInfo('go')">
+
+      <div class="icon-box mat-elevation-z2" [ngClass]="{'mat-elevation-z8 selected': displayType === 'go'}"
+        fxLayout="column" fxLayoutAlign="start center" (click)="selectInfo('go')">
         <h4>Step-2 Go</h4>
         <i class="material-icons wait">access_time</i>
       </div>
-      <div class="icon-box mat-elevation-z2" [ngClass]="{'mat-elevation-z8 selected': displayType === 'pass'}"  fxLayout="column" fxLayoutAlign="start center" (click)="selectInfo('pass')">
+
+      <div class="icon-box mat-elevation-z2" [ngClass]="{'mat-elevation-z8 selected': displayType === 'pass'}"
+        fxLayout="column" fxLayoutAlign="start center" (click)="selectInfo('pass')">
         <h4>Step-3 Pass</h4>
         <i class="material-icons go">done</i>
       </div>
+
     </div>
+
     <div class="display-info">
       <div [ngSwitch]="displayType">
         <div *ngSwitchCase="'book'">
