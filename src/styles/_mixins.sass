@@ -7,3 +7,20 @@
   -moz-user-select: none;     /* Firefox all */
   -ms-user-select: none;      /* IE 10+ */
   user-select: none;          /* Likely future */
+=transition-all()
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+=scale($x)
+  transform: scale($x);
+  -webkit-transform: scale($x);
+  -moz-transform: scale($x);
+  -o-transform: scale($x);
+  -ms-transform: scale($x);
+=scaleXY($x, $y)
+  transform: scale($x, $y);
+  -webkit-transform: scale($x, $y);
+  -moz-transform: scale($x, $y);
+  -o-transform: scale($x, $y);
+  -ms-transform: scale($x, $y);
