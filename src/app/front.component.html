@@ -19,7 +19,7 @@
         <div class="flipper">
           <div class="front mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
             <h4>Step-1 Book</h4>
-            <i class="material-icons go">phone</i>
+            <i class="material-icons stop">phone</i>
             <!-- front content -->
           </div>
           <div class="back mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
@@ -59,7 +59,7 @@
         <div class="flipper">
           <div class="front mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
             <h4>Step-3 Pass</h4>
-            <i class="material-icons stop">done</i>
+            <i class="material-icons go">done</i>
             <!-- front content -->
           </div>
           <div class="back mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
@@ -159,20 +159,40 @@
     <p>Slider here</p>
   </div>
 
-  <div class="section contact" id="contact">
+  <div class="section contact" id="contact" fxLayout="column" fxLayoutAlign="start center">
     <div class="content" fxLayout="column" fxLayoutAlign="start center">
+
       <h2 class="header">Contact</h2>
-      <div class="text">
+
+      <div class="text" fxLayout="column" fxLayoutAlign="start center">
         <h4>Contact us and we'll get back to you as soon as possible.</h4>
-        <div fxFill>
-          <span fxLayout="row" fxLayoutAlign="start start"><i class="material-icons grey3">location_on</i>Thanet, Kent, UK</span>
-          <span fxLayout="row" fxLayoutAlign="start start"><i class="material-icons grey3">phone</i>+07712345678</span>
-          <span fxLayout="row" fxLayoutAlign="start start"><i class="material-icons class">email</i>lessons@in-t-gear.com</span>
+        <div fxLayout="column" fxLayoutAlign="start start" class="info">
+          <span fxLayout="row" fxLayoutAlign="start start"><i class="material-icons stop">location_on</i>Thanet, Kent, UK</span>
+          <span fxLayout="row" fxLayoutAlign="start start"><i class="material-icons wait">phone</i>+07712345678</span>
+          <span fxLayout="row" fxLayoutAlign="start start"><i class="material-icons go">email</i>lessons@in-t-gear.com</span>
         </div>
       </div>
 
-      <div class="inputs">
-        inputs
+      <div class="inputs" fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="start start" fxLayout.xs="column" fxLayoutAlign.xs="start center" fxFill>
+
+        <div fxLayout="column" fxLayoutAlign="start start">
+          <md-input-container>
+            <input mdInput placeholder="Name" value="" required>
+          </md-input-container>
+          <md-input-container>
+            <input mdInput placeholder="Contact number" value="" required>
+          </md-input-container>
+          <md-input-container>
+            <input mdInput placeholder="Email address" value="">
+          </md-input-container>
+        </div>
+
+        <div>
+          <md-input-container>
+            <textarea mdInput placeholder="Enquiry" value="" required></textarea>
+          </md-input-container>
+        </div>
+
       </div>
     </div>
   </div>

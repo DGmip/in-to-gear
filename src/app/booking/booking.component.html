@@ -22,15 +22,17 @@
 
     <h3>Contact details</h3>
 
-    <md-input-container>
-      <input mdInput placeholder="Name" value="" required>
-    </md-input-container>
-    <md-input-container>
-      <input mdInput placeholder="Number" value="" required>
-    </md-input-container>
-    <md-input-container>
-      <input mdInput placeholder="Email" value="">
-    </md-input-container>
+    <div fxLayout="column" class="text-inputs">
+      <md-input-container>
+        <input mdInput placeholder="Name" value="" required>
+      </md-input-container>
+      <md-input-container>
+        <input mdInput placeholder="Number" value="" required>
+      </md-input-container>
+      <md-input-container>
+        <input mdInput placeholder="Email" value="">
+      </md-input-container>
+    </div>
 
     <button md-button md-raised-button (click)="book()">
       Request a callback

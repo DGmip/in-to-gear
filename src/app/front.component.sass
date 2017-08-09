@@ -8,6 +8,7 @@
     border-bottom: 1px solid $grey
     min-height: 420px
     padding: 20px 0px
+
     h2
       margin-top: 0px
     .content
@@ -17,11 +18,19 @@
       text-align: center
       padding-left: 65px
       padding-right: 65px
+
     &.contact
+      .content
+        .info
+          margin: 10px 0px !important
+        .inputs
+          max-width: 450px
+          md-input-container
+            background-color: white
+            margin-right: 10px
       span
         i.material-icons
-          margin-right: 5px
-          color: $text-grey
+          margin-right: 15px
       h4, span
         color: $text-grey
       .display-info
