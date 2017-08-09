@@ -1,61 +1,82 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+import { MdDialog } from '@angular/material';
+import { LoginComponent } from './login/login.component';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.sass'],
-  providers: [AngularFireAuth]
+  providers: [
+    AngularFireAuth,
+  ]
 })
+
 export class AdminComponent implements OnInit {
 
-  items: FirebaseListObservable < any[] > ;
-  item: FirebaseObjectObservable < any > ;
-  user: Observable < firebase.User > ;
+  enquiries: FirebaseListObservable < any[] > ;
+  enquiry: FirebaseObjectObservable < any > ;
+
+  passClass: FirebaseListObservable < any[] >
+
+    user: Observable < firebase.User > ;
+  logged: boolean = false;
 
   constructor(
-    public afAuth: AngularFireAuth,
     db: AngularFireDatabase,
+    public dialog: MdDialog,
+    public afAuth: AngularFireAuth,
   ) {
-    this.user = afAuth.authState;
-    this.items = db.list('/bookings');
+    if (this.logged) {
+      this.enquiries = db.list('/enquiries')
+    }
+    this.passClass = db.list('/pass-class')
   }
 
-  login() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  login(email: string, password: string) {
+    let dialogRef = this.dialog.open(LoginComponent, {
+      height: '100%',
+      width: '100%',
+    });
+    dialogRef.afterClosed().subscribe(user => {
+      // signInWithEmailAndPassword(email, password) returns firebase.Promise containing non-null firebase.User
+      console.log('got', user)
+    })
   }
 
   logout() {
-    this.afAuth.auth.signOut();
+    this.afAuth.auth.signOut()
+      .then(() => {
+        console.log('Logged out')
+        this.logged = false;
+      })
   }
 
-  addBooking(name: string, number: string, message: string, date: string) {
-    this.items.push({
+  addEnquiry(name: string, number: string, message: string) {
+    this.enquiries.push({
       name: name,
       number: number,
       message: message,
-      date: date
     });
   }
 
-  updateItem(key: string, newText: string) {
-    this.items.update(key, {
+  updateEnquiry(key: string, newText: string) {
+    this.enquiries.update(key, {
       text: newText
     });
   }
 
-  deleteItem(key: string) {
-    this.items.remove(key);
+  deleteEnquiry(key: string) {
+    this.enquiries.remove(key);
   }
 
   deleteEverything() {
-    this.items.remove();
+    this.enquiries.remove();
   }
 
   ngOnInit() {}
 
 }
-

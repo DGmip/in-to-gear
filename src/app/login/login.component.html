@@ -1,0 +1,28 @@
+<div [ngSwitch]="loginState" fxFill>
+
+  <div *ngSwitchCase="'login'" fxLayout="column" fxLayoutAlign="center center" fxFill>
+    <i class="material-icons stop">drive_eta</i>
+    <h2>In-To-Gear Login</h2>
+    <form fxLayout="column" fxLayoutAlign="center center">
+      <md-input-container>
+        <input mdInput placeholder="Email" value="" required #email>
+      </md-input-container>
+      <md-input-container>
+        <input mdInput placeholder="Password" value="" required type='password' #password>
+      </md-input-container>
+    </form>
+    <button md-button md-raised-button (click)="login(email.value, password.value)"> Login </button>
+  </div>
+
+  <div *ngSwitchCase="'loggedIn'" fxFill fxLayout="column" fxLayoutAlign="center center">
+    <i class="material-icons go">drive_eta</i>
+    <h4>Logging you in...</h4>
+  </div>
+
+  <div *ngSwitchCase="'error'" fxFill fxLayout="column" fxLayoutAlign="center center">
+    <h4 class="red">Sorry, we were not able to log you in. Please try again </h4>
+    {{errorCode}}
+    {{errorMessage}}
+  </div>
+
+</div>
