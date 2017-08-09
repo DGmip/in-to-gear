@@ -177,21 +177,25 @@
 
         <div fxLayout="column" fxLayoutAlign="start start">
           <md-input-container>
-            <input mdInput placeholder="Name" value="" required>
+            <input mdInput placeholder="Name" value="" required #name>
           </md-input-container>
           <md-input-container>
-            <input mdInput placeholder="Contact number" value="" required>
+            <input mdInput placeholder="Contact number" value="" required #number>
           </md-input-container>
           <md-input-container>
-            <input mdInput placeholder="Email address" value="">
+            <input mdInput placeholder="Email address" value="" #email>
           </md-input-container>
         </div>
 
         <div>
           <md-input-container>
-            <textarea mdInput placeholder="Enquiry" value="" required></textarea>
+            <textarea mdInput placeholder="Enquiry" value="" required #message></textarea>
           </md-input-container>
         </div>
+
+        <button md-button md-raised-button (click)="addEnquiry(name.value, number.value, email.value, message.value)">
+          Send
+        </button>
 
       </div>
     </div>

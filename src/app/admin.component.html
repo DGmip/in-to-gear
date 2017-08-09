@@ -1,27 +1,15 @@
 <div [ngSwitch]="logged.toString()">
   <div *ngSwitchCase="'true'">
-    <button md-button md-raised-button (click)="logout()"> Logout </button>
-    <div fxLayout="column" fxLayoutAlign="start start">
-      <h4>Enquiries</h4>
-      <md-input-container>
-        <input mdInput placeholder="Name" value="Ben Wall" required #name>
-      </md-input-container>
-      <md-input-container>
-        <input mdInput placeholder="Number" value="077602446" required #number>
-      </md-input-container>
-      <md-input-container>
-        <textarea mdInput placeholder="Message" value="Hi just wondering when you would be free to teach me to drive?"
-          required #message></textarea>
-      </md-input-container>
-      <button md-button md-raised-button (click)="addEnquiry(name.value, number.value, message.value)">Add enquiry</button>
-    </div>
 
-    <div class="enquiry" *ngFor="let e of enquiries | async">
-      <table>
+    <button md-button md-raised-button (click)="logout()"> Logout </button>
+
+    <div id="enquiries">
+      <h2>Enquires</h2>
+      <table *ngFor="let e of enquiries | async">
         <th fxLayout="column" fxLayoutAlign="center center">
           <button md-button md-icon-button class='default' (click)="deleteEnquiry(e.$key)">
-        <i class="material-icons grey">close</i>
-      </button>
+            <i class="material-icons grey">close</i>
+          </button>
         </th>
         <tr>
           <td>Name:</td>
@@ -35,8 +23,13 @@
           <td>Message:</td>
           <td>{{e.message}}</td>
         </tr>
+        <tr>
+          <td>Date:</td>
+          <td>{{e.date}}</td>
+        </tr>
       </table>
     </div>
+
   </div>
   <!-- switch is logged in -->
   <div *ngSwitchCase="'false'" fxLayout="column" fxLayoutAlign="center center">

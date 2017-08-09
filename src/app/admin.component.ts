@@ -20,9 +20,10 @@ export class AdminComponent implements OnInit {
   enquiries: FirebaseListObservable < any[] > ;
   enquiry: FirebaseObjectObservable < any > ;
 
-  passClass: FirebaseListObservable < any[] >
+  passClass: FirebaseListObservable < any[] > ;
 
-    user: Observable < firebase.User > ;
+  user: Observable < firebase.User > ;
+
   logged: boolean = false;
 
   constructor(
@@ -30,10 +31,14 @@ export class AdminComponent implements OnInit {
     public dialog: MdDialog,
     public afAuth: AngularFireAuth,
   ) {
-    if (this.logged) {
-      this.enquiries = db.list('/enquiries')
-    }
+    this.enquiries = db.list('/enquiries')
     this.passClass = db.list('/pass-class')
+    this.afAuth.authState.subscribe((user) => {
+      console.log('state changed', user)
+      if (user.uid === 'TSCA2oPCjbaRpVlbHFSlQnSxDgP2') {
+        this.logged = true;
+      }
+    })
   }
 
   login(email: string, password: string) {
@@ -43,24 +48,19 @@ export class AdminComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(user => {
       // signInWithEmailAndPassword(email, password) returns firebase.Promise containing non-null firebase.User
-      console.log('got', user)
+      console.log('got', user.uid)
+      if (user.uid === 'TSCA2oPCjbaRpVlbHFSlQnSxDgP2') {
+        this.logged = true;
+      }
     })
   }
 
   logout() {
     this.afAuth.auth.signOut()
-      .then(() => {
-        console.log('Logged out')
+      .then(data => {
+        console.log('Logged out', data)
         this.logged = false;
       })
-  }
-
-  addEnquiry(name: string, number: string, message: string) {
-    this.enquiries.push({
-      name: name,
-      number: number,
-      message: message,
-    });
   }
 
   updateEnquiry(key: string, newText: string) {
