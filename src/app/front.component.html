@@ -89,18 +89,67 @@
     <h2 class="header">Tests</h2>
     <div fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="space-around center" fxLayout.xs="column"
       fxLayoutAlign.xs="space-around center" fxFill>
-      <div class="box mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
-        <h4>Theory test</h4>
-        <p>Find out what you need to know</p>
+
+      <div class="flip-container" [ngClass]="{'hover': selected === 'theory'}" (click)="select('theory')">
+
+        <div class="flipper">
+          <div class="front mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
+            <h2>Theory test</h2>
+            <p>Find out what you need to know</p>
+            <!-- front content -->
+          </div>
+          <div class="back mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
+            <h4>Find out what you need to know</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequaa.</p>
+            <!-- back content -->
+          </div>
+        </div>
+
       </div>
-      <div class="box mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
-        <h4> Practical Driving Exam</h4>
-        <p>Feeling confident</p>
+
+      <div class="flip-container" [ngClass]="{'hover': selected === 'exam'}" (click)="select('exam')">
+
+        <div class="flipper">
+          <div class="front mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
+            <h2>Practical Driving Exam</h2>
+            <p>Feeling confident</p>
+            <!-- front content -->
+          </div>
+          <div class="back mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
+            <h4>Feeling confident</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequaa.</p>
+            <!-- back content -->
+          </div>
+        </div>
+
       </div>
-      <div class="box mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
-        <h4>Advanced Classes</h4>
-        <p>Step it up a gear</p>
+
+      <div class="flip-container" [ngClass]="{'hover': selected === 'advanced'}" (click)="select('advanced')">
+
+        <div class="flipper">
+          <div class="front mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
+            <h2>Advanced Classes</h2>
+            <p>Step it up a gear</p>
+            <!-- front content -->
+          </div>
+          <div class="back mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
+            <h4>Step it up a gear</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequaa.</p>
+            <!-- back content -->
+          </div>
+        </div>
+
       </div>
+
     </div>
   </div>
 

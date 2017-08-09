@@ -33,10 +33,10 @@ export class FrontComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('dev FrontComponent')
-    setTimeout(() => {
-      this.openBooking();
-    },200)
+    // console.log('dev FrontComponent')
+    // setTimeout(() => {
+    //   this.openBooking();
+    // },200)
   }
 
 }
