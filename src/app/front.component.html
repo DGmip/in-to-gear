@@ -1,69 +1,74 @@
 <div fxLayout="column" fxLayoutAlign="start center">
 
+
   <div class="section" id="head" fxLayout="column" fxLayoutAlign="start center">
     <h2 class="header">Welcome section</h2>
   </div>
 
   <div class="section" id="lessons" fxLayout="column" fxLayoutAlign="start center">
+
     <h2 class="header">Lessons</h2>
+
     <div fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="space-around center" fxLayout.xs="column"
       fxLayoutAlign.xs="space-around center" fxFill>
 
-      <div class="icon-box mat-elevation-z2" [ngClass]="{'mat-elevation-z8 selected': displayType === 'book'}"
-        fxLayout="column" fxLayoutAlign="start center" (click)="selectInfo('book')">
-        <div fxLayout="column" fxLayoutAlign="start center" class="front">
-          <h4>Step-1 Book</h4>
-          <i class="material-icons stop">phone</i>
+      <div class="flip-container" [ngClass]="{'hover': selected === 'book'}" (click)="select('book')">
+
+        <div class="flipper">
+          <div class="front mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
+            <h4>Step-1 Book</h4>
+            <i class="material-icons go">phone</i>
+            <!-- front content -->
+          </div>
+          <div class="back mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
+            <h4>Book a lesson</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequaa.</p>
+            <!-- back content -->
+          </div>
         </div>
+
       </div>
 
-      <div class="icon-box mat-elevation-z2" [ngClass]="{'mat-elevation-z8 selected': displayType === 'go'}"
-        fxLayout="column" fxLayoutAlign="start center" (click)="selectInfo('go')">
-        <h4>Step-2 Go</h4>
-        <i class="material-icons wait">access_time</i>
+      <div class="flip-container" [ngClass]="{'hover': selected === 'go'}" (click)="select('go')">
+
+        <div class="flipper">
+          <div class="front mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
+            <h4>Step-2 Go</h4>
+            <i class="material-icons wait">access_time</i>
+            <!-- front content -->
+          </div>
+          <div class="back mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
+            <h4>Get driving</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequaa.</p>
+            <!-- back content -->
+          </div>
+        </div>
+
       </div>
 
-      <div class="icon-box mat-elevation-z2" [ngClass]="{'mat-elevation-z8 selected': displayType === 'pass'}"
-        fxLayout="column" fxLayoutAlign="start center" (click)="selectInfo('pass')">
-        <h4>Step-3 Pass</h4>
-        <i class="material-icons go">done</i>
+      <div class="flip-container" [ngClass]="{'hover': selected === 'pass'}" (click)="select('pass')">
+
+        <div class="flipper">
+          <div class="front mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
+            <h4>Step-3 Pass</h4>
+            <i class="material-icons stop">done</i>
+            <!-- front content -->
+          </div>
+          <div class="back mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
+            <h4>Pass the test</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequaa.</p>
+            <!-- back content -->
+          </div>
+        </div>
+
       </div>
 
-    </div>
-
-    <div class="display-info">
-      <div [ngSwitch]="displayType">
-        <div *ngSwitchCase="'book'">
-          <h4>Book</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-            ex ea commodo consequaa.</p>
-        </div>
-        <div *ngSwitchCase="'go'">
-          <h4>Go</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-            ex ea commodo consequaa.</p>
-        </div>
-        <div *ngSwitchCase="'pass'">
-          <h4>Pass</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-            ex ea commodo consequaa.</p>
-        </div>
-      </div>
-      <!-- .display-info -->
     </div>
 
     <div class="section" id="book" fxLayout="column" fxLayoutAlign="start center">
       <h2 class="header">Book</h2>
       <h4>Alailable slots!</h4>
-      <button md-button md-raised-button>
-      Book
-    </button>
+      <button md-button md-raised-button> Book </button>
 
     </div>
 

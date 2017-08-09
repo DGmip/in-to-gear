@@ -7,13 +7,16 @@ import { NgSwitch, NgClass } from '@angular/common';
   styleUrls: ['./front.component.sass']
 })
 export class FrontComponent implements OnInit {
-
-  displayType: string = null;
+  selected: string = '';
 
   constructor() { }
 
-  selectInfo(type: string): void {
-    this.displayType = type;
+  select(card: string): void {
+    if(card === this.selected){
+      this.selected = '';
+      return
+    }
+    this.selected = card;
   }
 
   ngOnInit() {

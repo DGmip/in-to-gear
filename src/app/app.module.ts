@@ -25,7 +25,7 @@ import { HeaderComponent } from './header.component';
     AppComponent,
     FrontComponent,
     AdminComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserAnimationsModule,
