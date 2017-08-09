@@ -9,6 +9,11 @@ import { Environment } from './environment';
 import {
   MdButtonModule,
   MdMenuModule,
+  MdDialogModule,
+  MdInputModule,
+  MdCheckboxModule,
+  // MdDatepickerModule,
+  // MdNativeDateModule,
 } from '@angular/material';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -19,6 +24,7 @@ import { AppComponent } from './app.component';
 import { FrontComponent } from './front.component';
 import { AdminComponent } from './admin.component';
 import { HeaderComponent } from './header.component';
+import { BookingComponent } from './booking/booking.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +32,7 @@ import { HeaderComponent } from './header.component';
     FrontComponent,
     AdminComponent,
     HeaderComponent,
+    BookingComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -34,6 +41,11 @@ import { HeaderComponent } from './header.component';
     // matrial
     MdButtonModule,
     MdMenuModule,
+    MdDialogModule,
+    MdInputModule,
+    // MdDatepickerModule,
+    // MdNativeDateModule,
+    MdCheckboxModule,
 
     AngularFireModule.initializeApp(Environment.firebase),
     AngularFireDatabaseModule,
@@ -46,6 +58,7 @@ import { HeaderComponent } from './header.component';
     ])
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[BookingComponent]
 })
 export class AppModule {}

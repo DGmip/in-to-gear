@@ -1,8 +1,10 @@
 <div fxLayout="column" fxLayoutAlign="start center">
 
-
-  <div class="section" id="head" fxLayout="column" fxLayoutAlign="start center">
-    <h2 class="header">Welcome section</h2>
+  <div class="section" id="head">
+    <div class="content" fxLayout="column" fxLayoutAlign="start center">
+      <h2 class="header">In-To-Gear</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequaa.</p>
+    </div>
   </div>
 
   <div class="section" id="lessons" fxLayout="column" fxLayoutAlign="start center">
@@ -22,7 +24,10 @@
           </div>
           <div class="back mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
             <h4>Book a lesson</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequaa.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequaa.</p>
             <!-- back content -->
           </div>
         </div>
@@ -39,7 +44,10 @@
           </div>
           <div class="back mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
             <h4>Get driving</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequaa.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequaa.</p>
             <!-- back content -->
           </div>
         </div>
@@ -56,48 +64,54 @@
           </div>
           <div class="back mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
             <h4>Pass the test</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequaa.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequaa.</p>
             <!-- back content -->
           </div>
         </div>
 
       </div>
 
-    </div>
+    </div> <!-- card row -->
 
-    <div class="section" id="book" fxLayout="column" fxLayoutAlign="start center">
-      <h2 class="header">Book</h2>
-      <h4>Alailable slots!</h4>
-      <button md-button md-raised-button> Book </button>
+  </div> <!-- section -->
 
-    </div>
+  <div class="section" id="book" fxLayout="column" fxLayoutAlign="start center">
+    <h2 class="header">Book</h2>
+    <h4>Alailable slots!</h4>
+    <button md-button md-raised-button (click)="openBooking()">Request a booking</button>
 
-    <div class="section" id="tests" fxLayout="column" fxLayoutAlign="start center">
-      <h2 class="header">Tests</h2>
-      <div fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="space-around center" fxLayout.xs="column"
-        fxLayoutAlign.xs="space-around center" fxFill>
-        <div class="box mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
-          <h4>Theory test</h4>
-          <p>Find out what you need to know</p>
-        </div>
-        <div class="box mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
-          <h4> Practical Driving Exam</h4>
-          <p>Feeling confident</p>
-        </div>
-        <div class="box mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
-          <h4>Advanced Classes</h4>
-          <p>Step it up a gear</p>
-        </div>
+  </div>
+
+  <div class="section" id="tests" fxLayout="column" fxLayoutAlign="start center">
+    <h2 class="header">Tests</h2>
+    <div fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="space-around center" fxLayout.xs="column"
+      fxLayoutAlign.xs="space-around center" fxFill>
+      <div class="box mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
+        <h4>Theory test</h4>
+        <p>Find out what you need to know</p>
+      </div>
+      <div class="box mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
+        <h4> Practical Driving Exam</h4>
+        <p>Feeling confident</p>
+      </div>
+      <div class="box mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
+        <h4>Advanced Classes</h4>
+        <p>Step it up a gear</p>
       </div>
     </div>
+  </div>
 
-    <div class="section" id="pass" fxLayout="column" fxLayoutAlign="start center">
-      <h2 class="header">The Pass Class</h2>
-      <h4>Getting the result you wanted</h4>
-      <p>Slider here</p>
-    </div>
+  <div class="section" id="pass" fxLayout="column" fxLayoutAlign="start center">
+    <h2 class="header">The Pass Class</h2>
+    <h4>Getting the result you wanted</h4>
+    <p>Slider here</p>
+  </div>
 
-    <div class="section contact" id="contact" fxLayout="column" fxLayoutAlign="start center">
+  <div class="section contact" id="contact">
+    <div class="content" fxLayout="column" fxLayoutAlign="start center">
       <h2 class="header">Contact</h2>
       <div class="text">
         <h4>Contact us and we'll get back to you as soon as possible.</h4>
@@ -113,4 +127,4 @@
       </div>
     </div>
   </div>
-
+</div>

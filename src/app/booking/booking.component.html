@@ -1,0 +1,42 @@
+<div fxLayout="column" fxLayoutAlign="start center">
+
+  <div id="form">
+
+    <h3>Preferred days</h3>
+
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutWrap class="days">
+      <md-checkbox *ngFor="let d of days">{{d}}</md-checkbox>
+    </div>
+
+    <h3>Preffered time of day</h3>
+
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutWrap class="times">
+      <md-checkbox *ngFor="let t of times">{{t}}</md-checkbox>
+    </div>
+
+    <!-- <md&#45;input&#45;container> -->
+    <!--   <input mdInput [mdDatepicker]="picker" placeholder="Choose a date"> -->
+    <!--   <button mdSuffix [mdDatepickerToggle]="picker"></button> -->
+    <!-- </md&#45;input&#45;container> -->
+    <!-- <md&#45;datepicker #picker></md&#45;datepicker> -->
+
+    <h3>Contact details</h3>
+
+    <md-input-container>
+      <input mdInput placeholder="Name" value="" required>
+    </md-input-container>
+    <md-input-container>
+      <input mdInput placeholder="Number" value="" required>
+    </md-input-container>
+    <md-input-container>
+      <input mdInput placeholder="Email" value="">
+    </md-input-container>
+
+    <button md-button md-raised-button (click)="book()">
+      Request a callback
+    </button>
+
+  </div>
+
+</div>
+
