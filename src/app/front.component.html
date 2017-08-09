@@ -3,7 +3,10 @@
   <div class="section" id="head">
     <div class="content" fxLayout="column" fxLayoutAlign="start center">
       <h2 class="header">In-To-Gear</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequaa.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+        ea commodo consequaa.</p>
     </div>
   </div>
 
@@ -74,9 +77,11 @@
 
       </div>
 
-    </div> <!-- card row -->
+    </div>
+    <!-- card row -->
 
-  </div> <!-- section -->
+  </div>
+  <!-- section -->
 
   <div class="section" id="book" fxLayout="column" fxLayoutAlign="start center">
     <h2 class="header">Book</h2>
@@ -165,7 +170,7 @@
       <h2 class="header">Contact</h2>
 
       <div class="text" fxLayout="column" fxLayoutAlign="start center">
-        <h4>Contact us and we'll get back to you as soon as possible.</h4>
+        <h4 *ngIf="contactState === 'ready'">Contact us and we'll get back to you as soon as possible.</h4>
         <div fxLayout="column" fxLayoutAlign="start start" class="info">
           <span fxLayout="row" fxLayoutAlign="start start"><i class="material-icons stop">location_on</i>Thanet, Kent, UK</span>
           <span fxLayout="row" fxLayoutAlign="start start"><i class="material-icons wait">phone</i>+07712345678</span>
@@ -173,31 +178,48 @@
         </div>
       </div>
 
-      <div class="inputs" fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="start start" fxLayout.xs="column" fxLayoutAlign.xs="start center" fxFill>
+      <div [ngSwitch]="contactState.toString()">
+        <div *ngSwitchCase="'sent'">
+          <h4 class="success">Thank you for contacting us, we will get back to you as soon as possible.</h4>
+        </div>
+        <div *ngSwitchCase="'loading'" class="loading">
+          <md-progress-spinner [mode]="'indeterminate'" [strokeWidth]="6"></md-progress-spinner>
+        </div>
+        <div *ngSwitchCase="'error'">
+          <h4 class="error">Sorry, we could not send the message right now, please try again later.</h4>
+        </div>
+        <div *ngSwitchCase="'ready'" fxFill fxLayout="column" fxLayoutAlign="start center">
 
-        <div fxLayout="column" fxLayoutAlign="start start">
-          <md-input-container>
-            <input mdInput placeholder="Name" value="" required #name>
-          </md-input-container>
-          <md-input-container>
-            <input mdInput placeholder="Contact number" value="" required #number>
-          </md-input-container>
-          <md-input-container>
-            <input mdInput placeholder="Email address" value="" #email>
-          </md-input-container>
+          <div class="inputs" fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="start start" fxLayout.xs="column"
+            fxLayoutAlign.xs="start center" fxFill>
+
+            <div fxLayout="column" fxLayoutAlign="start start">
+              <md-input-container>
+                <input mdInput placeholder="Name" value="" required #name>
+              </md-input-container>
+              <md-input-container>
+                <input mdInput placeholder="Contact number" value="" required #number>
+              </md-input-container>
+              <md-input-container>
+                <input mdInput placeholder="Email address" value="" #email>
+              </md-input-container>
+            </div>
+
+            <div>
+              <md-input-container>
+                <textarea mdInput placeholder="Enquiry" value="" required #message></textarea>
+              </md-input-container>
+            </div>
+
+          </div>
+
+          <button md-button md-raised-button (click)="addEnquiry(name.value, number.value, email.value, message.value)"> Send </button>
         </div>
 
-        <div>
-          <md-input-container>
-            <textarea mdInput placeholder="Enquiry" value="" required #message></textarea>
-          </md-input-container>
-        </div>
-
-        <button md-button md-raised-button (click)="addEnquiry(name.value, number.value, email.value, message.value)">
-          Send
-        </button>
 
       </div>
+
     </div>
   </div>
 </div>
+

@@ -13,5 +13,8 @@ html, body
 .mat-dialog-container
   max-width: 100vw !important;
 
-.red
-  color: $stop
+h1, h2, h3, h4, h5, span, p
+  &.error, &.red
+    color: $stop !important
+  &.success
+    color: $go !important

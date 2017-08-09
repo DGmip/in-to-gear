@@ -12,6 +12,7 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
   providers: [MdDialog]
 })
 export class FrontComponent implements OnInit {
+  contactState: string = 'ready'; // sent / loading / error / sent
   selected: string = '';
   enquiries: FirebaseListObservable < any[] > ;
   // enquiry: FirebaseObjectObservable < any > ;
@@ -44,17 +45,23 @@ export class FrontComponent implements OnInit {
   }
 
   addEnquiry(name: string, number: string, email: string, message: string): void {
-    console.log(name, number, email, message)
-    // name = 'test';
-    // number = '22';
-    // email = 'email address';
-    // message = 'hello there';
+    this.contactState = 'loading';
+    name = 'test';
+    number = '22';
+    email = 'email address';
+    message = 'hello there';
     this.enquiries.push({
       name: name,
       number: number,
       email: email,
       message: message,
       date: this.getDate(),
+    })
+    .then(() => {
+      this.contactState = 'sent';
+    })
+    .catch(error => {
+      this.contactState = 'error';
     })
   }
 

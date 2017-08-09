@@ -15,6 +15,7 @@ import {
   MdDialogModule,
   MdInputModule,
   MdCheckboxModule,
+  MdProgressSpinnerModule,
   // MdDatepickerModule,
   // MdNativeDateModule,
 } from '@angular/material';
@@ -49,6 +50,7 @@ import { LoginComponent } from './login/login.component';
     // MdDatepickerModule,
     // MdNativeDateModule,
     MdCheckboxModule,
+    MdProgressSpinnerModule,
 
     AngularFireModule.initializeApp(Environment.firebase),
     AngularFireDatabaseModule,
