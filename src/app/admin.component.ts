@@ -16,11 +16,11 @@ import { LoginComponent } from './login/login.component';
 })
 
 export class AdminComponent implements OnInit {
-
   enquiries: FirebaseListObservable < any[] > ;
   enquiry: FirebaseObjectObservable < any > ;
 
-  passClass: FirebaseListObservable < any[] > ;
+  reviews: FirebaseListObservable < any[] > ;
+  review: FirebaseObjectObservable <any>;
 
   user: Observable < firebase.User > ;
 
@@ -32,11 +32,14 @@ export class AdminComponent implements OnInit {
     public afAuth: AngularFireAuth,
   ) {
     this.enquiries = db.list('/enquiries')
-    this.passClass = db.list('/pass-class')
+    this.reviews = db.list('/pass-class')
+
     this.afAuth.authState.subscribe((user) => {
       console.log('state changed', user)
-      if (user.uid === 'TSCA2oPCjbaRpVlbHFSlQnSxDgP2') {
-        this.logged = true;
+      if (user) {
+        if (user.uid === 'TSCA2oPCjbaRpVlbHFSlQnSxDgP2') {
+          this.logged = true;
+        }
       }
     })
   }
@@ -75,6 +78,25 @@ export class AdminComponent implements OnInit {
 
   deleteEverything() {
     this.enquiries.remove();
+  }
+
+  addReview(name: string, location: string, review: string): void {
+    let obj = {
+      name: name,
+      location: location,
+      review: review
+    }
+    let test = {
+      name: 'Ben Wall',
+      location: 'Thanet, Kent',
+      review: 'It was easy to learn with this driving school - it was a very rewarding experience'
+    }
+    this.reviews.push(obj);
+    // this.reviews.push(test);
+  }
+
+  deleteReview(key: string): void {
+    this.reviews.remove(key)
   }
 
   ngOnInit() {}

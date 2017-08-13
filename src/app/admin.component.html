@@ -3,31 +3,77 @@
 
     <button md-button md-raised-button (click)="logout()"> Logout </button>
 
-    <div id="enquiries">
+    <div id="enquiries" fxLayout="column" fxLayoutAlign="start center">
       <h2>Enquires</h2>
-      <table *ngFor="let e of enquiries | async">
-        <th fxLayout="column" fxLayoutAlign="center center">
-          <button md-button md-icon-button class='default' (click)="deleteEnquiry(e.$key)">
-            <i class="material-icons grey">close</i>
-          </button>
-        </th>
-        <tr>
-          <td>Name:</td>
-          <dt>{{e.name}}</dt>
-        </tr>
-        <tr>
-          <td>Number:</td>
-          <td>{{e.number}}</td>
-        </tr>
-        <tr>
-          <td>Message:</td>
-          <td>{{e.message}}</td>
-        </tr>
-        <tr>
-          <td>Date:</td>
-          <td>{{e.date}}</td>
-        </tr>
-      </table>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutWrap>
+        <div class="mat-elevation-z4 enquiry" *ngFor="let e of enquiries | async">
+          <div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
+            <span class="bold">{{e.date | date : 'medium'}}</span>
+            <button md-button md-icon-button class='default' (click)="deleteEnquiry(e.$key)">
+              <i class="material-icons grey">close</i>
+            </button>
+          </div>
+          <table>
+            <tr>
+              <td>Name:</td>
+              <dt>{{e.name}}</dt>
+            </tr>
+            <tr>
+              <td>Number:</td>
+              <td>{{e.number}}</td>
+            </tr>
+            <tr>
+              <td>Message:</td>
+              <td>{{e.message}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="add-reviews" fxLayout="column" fxLayoutAlign="start center">
+      <h2>Add review</h2>
+      <md-input-container>
+        <input mdInput placeholder="Name" value="" required #name>
+      </md-input-container>
+      <md-input-container>
+        <input mdInput placeholder="Location..." value="" required #location>
+      </md-input-container>
+      <md-input-container>
+        <textarea mdInput placeholder="Review" value="" #review required></textarea>
+      </md-input-container>
+      <button md-button md-raised-button (click)="addReview(name.value, location.value, review.value)">
+        Add Review
+      </button>
+    </div>
+
+    <div id="reviews" fxLayout="column" fxLayoutAlign="start center">
+      <h2>Reviews</h2>
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutWrap>
+        <div class="review mat-elevation-z4" *ngFor="let r of reviews | async">
+          <div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
+            <span>{{r.name}}</span>
+            <button md-button md-icon-button (click)="deleteReview(r.$key)">
+                <i class="material-icons grey">close</i>
+              </button>
+          </div>
+          <table>
+            <tr>
+              <td>Name:</td>
+              <td>{{r.name}}</td>
+            </tr>
+            <tr>
+              <td>Location:</td>
+              <td>{{r.location}}</td>
+            </tr>
+            <tr>
+              <td>Review</td>
+              <td>{{r.review}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
 
   </div>

@@ -14,14 +14,17 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 export class FrontComponent implements OnInit {
   contactState: string = 'ready'; // sent / loading / error / sent
   selected: string = '';
+
   enquiries: FirebaseListObservable < any[] > ;
-  // enquiry: FirebaseObjectObservable < any > ;
+
+  reviews: FirebaseListObservable < any[] > ;
 
   constructor(
     public dialog: MdDialog,
     db: AngularFireDatabase,
   ) {
-    this.enquiries = db.list('/enquiries')
+    this.reviews = db.list('pass-class');
+    this.enquiries = db.list('enquiries')
   }
 
   select(card: string): void {
@@ -46,10 +49,10 @@ export class FrontComponent implements OnInit {
 
   addEnquiry(name: string, number: string, email: string, message: string): void {
     this.contactState = 'loading';
-    name = 'test';
-    number = '22';
-    email = 'email address';
-    message = 'hello there';
+    // name = 'Ben'
+    // number = '077240402'
+    // email = 'bwall256@gmail.com'
+    // message = 'I want driving lessons can you please call me'
     this.enquiries.push({
       name: name,
       number: number,
