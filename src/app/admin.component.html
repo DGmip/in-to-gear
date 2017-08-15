@@ -76,6 +76,34 @@
       </div>
     </div>
 
+    <div id="bookings" fxLayout="column" fxLayoutAlign="start center">
+      <h2>Booking Requests</h2>
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutWrap>
+        <div class="review mat-elevation-z4" *ngFor="let r of reviews | async">
+          <div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
+            <span>{{r.name}}</span>
+            <button md-button md-icon-button (click)="deleteReview(r.$key)">
+                <i class="material-icons grey">close</i>
+              </button>
+          </div>
+          <table>
+            <tr>
+              <td>Name:</td>
+              <td>{{r.name}}</td>
+            </tr>
+            <tr>
+              <td>Location:</td>
+              <td>{{r.location}}</td>
+            </tr>
+            <tr>
+              <td>Review</td>
+              <td>{{r.review}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
   </div>
   <!-- switch is logged in -->
   <div *ngSwitchCase="'false'" fxLayout="column" fxLayoutAlign="center center">
