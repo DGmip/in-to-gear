@@ -17,13 +17,10 @@ export class FrontComponent implements OnInit {
 
   enquiries: FirebaseListObservable < any[] > ;
 
-  reviews: FirebaseListObservable < any[] > ;
-
   constructor(
     public dialog: MdDialog,
     db: AngularFireDatabase,
   ) {
-    this.reviews = db.list('pass-class');
     this.enquiries = db.list('enquiries')
   }
 
@@ -40,7 +37,6 @@ export class FrontComponent implements OnInit {
       height: '100%',
       width: '100%',
     });
-
   }
 
   getDate(): number {

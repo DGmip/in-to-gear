@@ -161,12 +161,7 @@
   <div class="section" id="pass" fxLayout="column" fxLayoutAlign="start center">
     <h2 class="header">The Pass Class</h2>
     <h4>Getting the result you wanted</h4>
-    <div *ngFor="let r of reviews | async">
-      {{r.name}}
-      {{r.location}}
-      {{r.review}}
-    </div>
-    <p>Slider here</p>
+    <app-slider></app-slider>
   </div>
 
   <div class="section contact" id="contact" fxLayout="column" fxLayoutAlign="start center">

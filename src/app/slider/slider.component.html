@@ -1,0 +1,22 @@
+<div id="slider" fxLayout="row" fxLayoutAlign="start center">
+  <div *ngFor="let r of reviews">
+    <div [style.background-image]='sanitize(r.url)' class="review" fxLayout="column" fxLayoutAlign="space-between center" *ngIf="reviews.indexOf(r) === index">
+      <p></p>
+      <p class="review-text">{{r.review}}</p>
+      <div fxLayout="column" fxLayoutAlign="start center">
+        <span class="name">{{r.name}}</span>
+        <span class="location">{{r.location}}</span>
+      </div>
+      <div class="overlay" fxLayout="row" fxLayoutAlign="space-between center">
+
+        <button md-button md-icon-button (click)="navigate('left')">
+          <i class="material-icons white">chevron_left</i>
+        </button>
+        <button md-button md-icon-button (click)="navigate('right')">
+          <i class="material-icons white">chevron_right</i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

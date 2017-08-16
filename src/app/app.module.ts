@@ -38,6 +38,7 @@ import { HeaderComponent } from './header.component';
 import { BookingComponent } from './booking/booking.component';
 import { LoginComponent } from './login/login.component';
 import { UploadComponent } from './upload/upload.component';
+import { SliderComponent } from './slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { UploadComponent } from './upload/upload.component';
     BookingComponent,
     LoginComponent,
     UploadComponent,
+    SliderComponent,
   ],
   imports: [
     BrowserAnimationsModule,
