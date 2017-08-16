@@ -1,0 +1,29 @@
+<div fxLayout="column" fxLayoutAlign="start start">
+  <div fxLayout="row" fxLayoutAlign="start center">
+
+    <input type="file" (change)="changedHandler($event, input.files)" accept='image/*' #input/>
+    <button md-button md-raised-button (click)="input.click()" fxLayout="row" fxLayoutAlign="start center">
+      Add an image
+      <i class="material-icons default">image</i>
+    </button>
+
+    <div [ngSwitch]="state" id="state">
+      <div *ngSwitchCase="'ready'">
+      </div>
+      <div *ngSwitchCase="'loading'">
+      </div>
+      <div *ngSwitchCase="'success'" fxLayout="column" fxLayoutAlign="center center">
+        <i class="material-icons success">done</i>
+      </div>
+      <div *ngSwitchCase="'error'" fxLayout="column" fxLayoutAlign="center center">
+        <i class="material-icons error">close</i>
+      </div>
+    </div>
+
+  </div>
+
+  <img [src]="imageSrc" alt="cunt" width='100' *ngIf="imageSrc"/>
+
+  <md-progress-bar [mode]="'determinate'" [value]="progress" *ngIf="progress > 0 && progress < 100"></md-progress-bar>
+
+</div>

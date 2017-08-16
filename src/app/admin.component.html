@@ -3,6 +3,29 @@
 
     <button md-button md-raised-button (click)="logout()"> Logout </button>
 
+    <div id="add-reviews" fxLayout="column" fxLayoutAlign="start start">
+      <h2>Add review</h2>
+      <md-input-container>
+        <input mdInput placeholder="Name" value="" required #name>
+      </md-input-container>
+      <md-input-container>
+        <input mdInput placeholder="Location..." value="" required #location>
+      </md-input-container>
+      <md-input-container>
+        <textarea mdInput placeholder="Review" value="" #review required></textarea>
+      </md-input-container>
+
+      <app-upload (uploadedEmitter)=imageUploaded($event)></app-upload>
+
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <button md-button md-raised-button (click)="addReview(name.value, location.value, review.value)" [disabled]='!imageSuccess'>
+          Add Review
+        </button>
+        <span class="red" *ngIf="!imageSuccess">Please make sure to add your Pass Class image before continuing</span>
+      </div>
+    </div>
+
+
     <div id="enquiries" fxLayout="column" fxLayoutAlign="start center">
       <h2>Enquires</h2>
 
@@ -31,23 +54,6 @@
         </div>
       </div>
     </div>
-
-    <div id="add-reviews" fxLayout="column" fxLayoutAlign="start center">
-      <h2>Add review</h2>
-      <md-input-container>
-        <input mdInput placeholder="Name" value="" required #name>
-      </md-input-container>
-      <md-input-container>
-        <input mdInput placeholder="Location..." value="" required #location>
-      </md-input-container>
-      <md-input-container>
-        <textarea mdInput placeholder="Review" value="" #review required></textarea>
-      </md-input-container>
-      <button md-button md-raised-button (click)="addReview(name.value, location.value, review.value)">
-        Add Review
-      </button>
-    </div>
-
     <div id="reviews" fxLayout="column" fxLayoutAlign="start center">
       <h2>Reviews</h2>
       <div fxLayout="row" fxLayoutAlign="start center" fxLayoutWrap>
@@ -70,6 +76,10 @@
             <tr>
               <td>Review</td>
               <td>{{r.review}}</td>
+            </tr>
+            <tr>
+              <td>Image</td>
+              <img src="{{r.url}}}" alt="" width='100px' *ngIf="r.url"/>
             </tr>
           </table>
         </div>

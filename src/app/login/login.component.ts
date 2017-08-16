@@ -4,7 +4,6 @@ import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
 import {MD_DIALOG_DATA, MdDialogRef} from '@angular/material';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

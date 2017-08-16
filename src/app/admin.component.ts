@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -24,6 +24,9 @@ export class AdminComponent implements OnInit {
 
   user: Observable < firebase.User > ;
 
+  imageSuccess: boolean = false;
+  imageUrl: string;
+
   logged: boolean = false;
 
   constructor(
@@ -42,6 +45,11 @@ export class AdminComponent implements OnInit {
         }
       }
     })
+  }
+
+  changed(ev): void {
+    console.log('in admin')
+    console.log(ev)
   }
 
   login(email: string, password: string) {
@@ -81,22 +89,39 @@ export class AdminComponent implements OnInit {
   }
 
   addReview(name: string, location: string, review: string): void {
+    if(!this.imageUrl){
+      console.error('there was no image hash')
+    }
     let obj = {
       name: name,
       location: location,
-      review: review
+      review: review,
+      url: this.imageUrl,
     }
-    let test = {
-      name: 'Ben Wall',
-      location: 'Thanet, Kent',
-      review: 'It was easy to learn with this driving school - it was a very rewarding experience'
-    }
+    // let test = {
+    //   name: 'Ben Wall',
+    //   location: 'Thanet, Kent',
+    //   review: 'It was easy to learn with this driving school - it was a very rewarding experience'
+    // }
     this.reviews.push(obj);
     // this.reviews.push(test);
   }
 
+  imageUploaded(url: string): void {
+    this.imageSuccess = true;
+    this.imageUrl = url;
+  }
+
   deleteReview(key: string): void {
     this.reviews.remove(key)
+  }
+
+  getImage(hash): void {
+    let ref = firebase.storage().ref('images/'+hash).getDownloadURL()
+      .then((data) => {
+        console.log('image', data)
+        return data
+      })
   }
 
   ngOnInit() {}
