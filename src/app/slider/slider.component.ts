@@ -30,10 +30,15 @@ export class SliderComponent implements OnInit {
   navigate(dir: string): void {
     switch (dir) {
       case 'left':
-        this.index--;
+        if(this.index === 0){
+          this.index = this.reviews.length
+        }
+        this.index --;
         break;
       case 'right':
-        this.index++;
+        this.index ++;
+        this.index = this.index % this.reviews.length; // if we've gone too high, start from `0` again
+        console.log(this.index)
         break;
       default:
     }
