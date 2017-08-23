@@ -1,19 +1,33 @@
 <div id="slider" fxLayout="row" fxLayoutAlign="start center">
   <div *ngFor="let r of reviews">
-    <div [style.background-image]='sanitize(r.url)' class="review" fxLayout="column" fxLayoutAlign="space-between center" *ngIf="reviews.indexOf(r) === index">
-      <p></p>
-      <p class="review-text">{{r.review}}</p>
-      <div fxLayout="column" fxLayoutAlign="start center">
-        <span class="name">{{r.name}}</span>
-        <span class="location">{{r.location}}</span>
-      </div>
-      <div class="overlay" fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="review mat-elevation-z3" fxLayout="column" fxLayoutAlign="space-between center" *ngIf="reviews.indexOf(r) === index">
+      <div
+        fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="start center"
+        fxLayout.xs="column" fxLayoutAlign.xs="start center"
+        >
+        <div class="image section" [style.background-image]='sanitize(r.url)' fxFlex="50">
+        </div>
 
+        <div class="content section" fxFlex='50' fxLayout="column" fxLayoutAlign="space-around center">
+
+          <p class="review-text"> <i class="material-icons class">format_quote</i> {{r.review}}</p>
+
+          <div fxLayout="column" fxLayoutAlign="start center">
+            <span class="name">{{r.name}}</span>
+            <span class="location">{{r.location}}</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="nav" fxLayout="row" fxLayoutAlign="space-between center">
         <button md-button md-icon-button (click)="navigate('left')">
-          <i class="material-icons white">chevron_left</i>
+          <i class="material-icons default">chevron_left</i>
         </button>
+        <div class="point" [ngClass]="{selected: reviews.indexOf(r) === index}" *ngFor="let r of reviews" (click)="selectPoint(r)">
+        </div>
         <button md-button md-icon-button (click)="navigate('right')">
-          <i class="material-icons white">chevron_right</i>
+          <i class="material-icons default">chevron_right</i>
         </button>
       </div>
     </div>

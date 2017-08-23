@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { PassClass } from '../interfaces/pass-class';
@@ -8,10 +8,11 @@ import { PassClass } from '../interfaces/pass-class';
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.sass']
 })
-export class SliderComponent implements OnInit {
+export class SliderComponent implements OnInit, OnDestroy {
   // reviews: FirebaseListObservable < PassClass[] > ;
   reviews: any[] = [];
   public index: number = 0;
+  interval: any = 0;
 
   constructor(
     db: AngularFireDatabase,
@@ -44,6 +45,18 @@ export class SliderComponent implements OnInit {
     }
   }
 
-  ngOnInit() {}
+  selectPoint(r): void {
+    this.index = this.reviews.indexOf(r);
+  }
+
+  ngOnInit() {
+    this.interval = setInterval(() => {
+      this.navigate('right')
+    }, 6000)
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.interval)
+  }
 
 }
