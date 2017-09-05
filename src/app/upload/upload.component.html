@@ -2,6 +2,7 @@
   <div fxLayout="row" fxLayoutAlign="start center">
 
     <input type="file" (change)="changedHandler($event, input.files)" accept='image/*' #input/>
+
     <button md-button md-raised-button (click)="input.click()" fxLayout="row" fxLayoutAlign="start center">
       Add an image
       <i class="material-icons default">image</i>
@@ -22,7 +23,7 @@
 
   </div>
 
-  <img [src]="imageSrc" alt="cunt" width='100' *ngIf="imageSrc"/>
+  <img [src]="imageSrc" alt="image" width='100' *ngIf="imageSrc"/>
 
   <md-progress-bar [mode]="'determinate'" [value]="progress" *ngIf="progress > 0 && progress < 100"></md-progress-bar>
 

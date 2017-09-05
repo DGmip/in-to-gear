@@ -3,29 +3,6 @@
 
     <button md-button md-raised-button (click)="logout()"> Logout </button>
 
-    <div id="add-reviews" fxLayout="column" fxLayoutAlign="start start">
-      <h2>Add review</h2>
-      <md-input-container>
-        <input mdInput placeholder="Name" value="" required #name>
-      </md-input-container>
-      <md-input-container>
-        <input mdInput placeholder="Location..." value="" required #location>
-      </md-input-container>
-      <md-input-container>
-        <textarea mdInput placeholder="Review" value="" #review required></textarea>
-      </md-input-container>
-
-      <app-upload (uploadedEmitter)=imageUploaded($event)></app-upload>
-
-      <div fxLayout="row" fxLayoutAlign="start center">
-        <button md-button md-raised-button (click)="addReview(name.value, location.value, review.value)" [disabled]='!imageSuccess'>
-          Add Review
-        </button>
-        <span class="red" *ngIf="!imageSuccess">Please make sure to add your Pass Class image before continuing</span>
-      </div>
-    </div>
-
-
     <div id="enquiries" fxLayout="column" fxLayoutAlign="start center">
       <h2>Enquires</h2>
 
@@ -54,6 +31,7 @@
         </div>
       </div>
     </div>
+
     <div id="reviews" fxLayout="column" fxLayoutAlign="start center">
       <h2>Reviews</h2>
       <div fxLayout="row" fxLayoutAlign="start center" fxLayoutWrap>
@@ -61,8 +39,8 @@
           <div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
             <span>{{r.name}}</span>
             <button md-button md-icon-button (click)="deleteReview(r.$key)">
-                <i class="material-icons grey">close</i>
-              </button>
+              <i class="material-icons grey">close</i>
+            </button>
           </div>
           <table>
             <tr>
@@ -79,39 +57,39 @@
             </tr>
             <tr>
               <td>Image</td>
-              <img src="{{r.url}}}" alt="" width='100px' *ngIf="r.url"/>
+              <img src="{{r.url}}}" alt="" width='100px' *ngIf="r.url" />
             </tr>
           </table>
         </div>
       </div>
     </div>
 
+    <div id="add-reviews" fxLayout="column" fxLayoutAlign="start start">
+      <h2>Add review</h2>
+      <md-input-container>
+        <input mdInput placeholder="Name" value="" required #name>
+      </md-input-container>
+      <md-input-container>
+        <input mdInput placeholder="Location..." value="" required #location>
+      </md-input-container>
+      <md-input-container>
+        <textarea mdInput placeholder="Review" value="" #review required></textarea>
+      </md-input-container>
+
+      <app-upload (uploadedEmitter)=imageUploaded($event)></app-upload>
+
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <button md-button md-raised-button (click)="addReview(name.value, location.value, review.value)"
+          [disabled]='!imageSuccess'>
+          Add Review
+        </button>
+        <span class="red" *ngIf="!imageSuccess">Please make sure to add your Pass Class image before continuing</span>
+      </div>
+    </div>
+
     <div id="bookings" fxLayout="column" fxLayoutAlign="start center">
       <h2>Booking Requests</h2>
-      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutWrap>
-        <div class="review mat-elevation-z4" *ngFor="let r of reviews | async">
-          <div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
-            <span>{{r.name}}</span>
-            <button md-button md-icon-button (click)="deleteReview(r.$key)">
-                <i class="material-icons grey">close</i>
-              </button>
-          </div>
-          <table>
-            <tr>
-              <td>Name:</td>
-              <td>{{r.name}}</td>
-            </tr>
-            <tr>
-              <td>Location:</td>
-              <td>{{r.location}}</td>
-            </tr>
-            <tr>
-              <td>Review</td>
-              <td>{{r.review}}</td>
-            </tr>
-          </table>
-        </div>
-      </div>
+      <p>Not yet written</p>
     </div>
 
   </div>
